@@ -9,6 +9,10 @@ Note that benchmarks are never an absolute truth. Depending on the data access p
 - Array of Structures
 - Separately heap allocated elements
 
+Note that in the `soa` benchmark the benchmark is re-run several times with bigger and bigger amounts of "extra data" in each array element.
+
+## Running the tests
+
 Run the program using
 ```
 odin run . -o:none
@@ -26,216 +30,216 @@ If you add the speed optimizations, then some vectorizations will kick in that w
 ```
 Benchmark: Iterating tightly packed arrays vs arrays with separately heap allocated elements
 --------------------------------------------------------------------------------------------
-Scattered array age sum: 50.4268
-Tight array age sum: 50.0145
-Cache friendly method is 4.03 times faster
+Scattered array age sum: 51.180599
+Tight array age sum: 50.1008
+Cache friendly method is 3.85 times faster
 
 Benchmark: Iterating arrays that use SoA vs AoS vs separately heap allocated elements
 -------------------------------------------------------------------------------------
-For 0 bytes of extra data
-Scattered heap allocations age sum: 49.893398
-Arrays of Structures age sum: 50.191399
-Structure of Arrays age sum: 49.8144
-SoA is 1.05 times faster than AoS
-SoA is 4.16 times faster than scattered array
-
-For 2 bytes of extra data
-Scattered heap allocations age sum: 50.224998
-Arrays of Structures age sum: 49.9066
-Structure of Arrays age sum: 49.5145
-SoA is 1.04 times faster than AoS
-SoA is 4.12 times faster than scattered array
-
-For 4 bytes of extra data
-Scattered heap allocations age sum: 49.851799
-Arrays of Structures age sum: 50.3936
-Structure of Arrays age sum: 49.837898
-SoA is 0.99 times faster than AoS
-SoA is 3.85 times faster than scattered array
-
-For 8 bytes of extra data
-Scattered heap allocations age sum: 49.8167
-Arrays of Structures age sum: 50.3918
-Structure of Arrays age sum: 49.960499
+For 0 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.4728
+Arrays of Structures age sum: 50.276199
+Structure of Arrays age sum: 50.411098
 SoA is 1.06 times faster than AoS
+SoA is 4.05 times faster than scattered array
+
+For 2 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.004
+Arrays of Structures age sum: 50.1939
+Structure of Arrays age sum: 50.202
+SoA is 1.04 times faster than AoS
 SoA is 4.03 times faster than scattered array
 
-For 16 bytes of extra data
-Scattered heap allocations age sum: 49.773399
-Arrays of Structures age sum: 49.745499
-Structure of Arrays age sum: 50.3009
+For 4 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.241299
+Arrays of Structures age sum: 50.234798
+Structure of Arrays age sum: 50.0829
+SoA is 1.04 times faster than AoS
+SoA is 3.99 times faster than scattered array
+
+For 8 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.8054
+Arrays of Structures age sum: 49.2605
+Structure of Arrays age sum: 50.0765
+SoA is 1.04 times faster than AoS
+SoA is 4.13 times faster than scattered array
+
+For 16 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.9506
+Arrays of Structures age sum: 49.9188
+Structure of Arrays age sum: 49.814499
 SoA is 1.07 times faster than AoS
-SoA is 1.76 times faster than scattered array
+SoA is 1.79 times faster than scattered array
 
-For 32 bytes of extra data
-Scattered heap allocations age sum: 49.913799
-Arrays of Structures age sum: 50.1954
-Structure of Arrays age sum: 50.109299
-SoA is 1.20 times faster than AoS
-SoA is 1.82 times faster than scattered array
+For 32 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.1576
+Arrays of Structures age sum: 50.088299
+Structure of Arrays age sum: 49.8412
+SoA is 1.21 times faster than AoS
+SoA is 1.80 times faster than scattered array
 
-For 64 bytes of extra data
-Scattered heap allocations age sum: 49.7849
-Arrays of Structures age sum: 49.8964
-Structure of Arrays age sum: 50.1188
-SoA is 1.53 times faster than AoS
-SoA is 2.20 times faster than scattered array
+For 64 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.7724
+Arrays of Structures age sum: 50.048
+Structure of Arrays age sum: 50.2673
+SoA is 1.48 times faster than AoS
+SoA is 1.98 times faster than scattered array
 
-For 128 bytes of extra data
-Scattered heap allocations age sum: 49.4676
-Arrays of Structures age sum: 49.8643
-Structure of Arrays age sum: 49.9424
-SoA is 1.83 times faster than AoS
-SoA is 2.11 times faster than scattered array
+For 128 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.4217
+Arrays of Structures age sum: 50.2882
+Structure of Arrays age sum: 49.923698
+SoA is 1.99 times faster than AoS
+SoA is 1.98 times faster than scattered array
 
-For 256 bytes of extra data
-Scattered heap allocations age sum: 50.1217
-Arrays of Structures age sum: 49.9607
-Structure of Arrays age sum: 49.960098
-SoA is 1.86 times faster than AoS
-SoA is 2.13 times faster than scattered array
+For 256 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.5131
+Arrays of Structures age sum: 50.043598
+Structure of Arrays age sum: 50.430599
+SoA is 1.92 times faster than AoS
+SoA is 2.06 times faster than scattered array
 
-For 512 bytes of extra data
-Scattered heap allocations age sum: 49.8618
-Arrays of Structures age sum: 49.8628
-Structure of Arrays age sum: 49.486599
-SoA is 1.86 times faster than AoS
-SoA is 2.03 times faster than scattered array
+For 512 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.0951
+Arrays of Structures age sum: 49.9863
+Structure of Arrays age sum: 50.144798
+SoA is 1.87 times faster than AoS
+SoA is 2.07 times faster than scattered array
 
-For 1024 bytes of extra data
-Scattered heap allocations age sum: 50.0315
-Arrays of Structures age sum: 49.928699
-Structure of Arrays age sum: 49.7
+For 1024 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.072498
+Arrays of Structures age sum: 49.411098
+Structure of Arrays age sum: 49.9305
 SoA is 2.23 times faster than AoS
-SoA is 2.40 times faster than scattered array
+SoA is 2.45 times faster than scattered array
 
-For 1500 bytes of extra data
-Scattered heap allocations age sum: 49.6057
-Arrays of Structures age sum: 50.0073
-Structure of Arrays age sum: 50.1161
-SoA is 2.41 times faster than AoS
-SoA is 2.67 times faster than scattered array
+For 1500 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.891899
+Arrays of Structures age sum: 49.5755
+Structure of Arrays age sum: 50.1118
+SoA is 2.42 times faster than AoS
+SoA is 2.70 times faster than scattered array
 
-For 2000 bytes of extra data
-Scattered heap allocations age sum: 49.8314
-Arrays of Structures age sum: 49.7463
-Structure of Arrays age sum: 50.136799
+For 2000 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.4119
+Arrays of Structures age sum: 49.7807
+Structure of Arrays age sum: 50.178699
 SoA is 2.06 times faster than AoS
-SoA is 2.22 times faster than scattered array
+SoA is 2.23 times faster than scattered array
 
-For 3000 bytes of extra data
-Scattered heap allocations age sum: 50.132
-Arrays of Structures age sum: 49.8506
-Structure of Arrays age sum: 49.911598
-SoA is 3.21 times faster than AoS
-SoA is 3.59 times faster than scattered array
+For 3000 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.9331
+Arrays of Structures age sum: 49.688099
+Structure of Arrays age sum: 49.9849
+SoA is 3.18 times faster than AoS
+SoA is 3.52 times faster than scattered array
 ```
 
 ## Program output with `-o:speed` on my computer:
 ```
 Benchmark: Iterating tightly packed arrays vs arrays with separately heap allocated elements
 --------------------------------------------------------------------------------------------
-Scattered array age sum: 50.0737
-Tight array age sum: 49.5336
-Cache friendly method is 21.38 times faster
+Scattered array age sum: 49.313599
+Tight array age sum: 50.057899
+Cache friendly method is 20.86 times faster
 
 Benchmark: Iterating arrays that use SoA vs AoS vs separately heap allocated elements
 -------------------------------------------------------------------------------------
-For 0 bytes of extra data
-Scattered heap allocations age sum: 50.2993
-Arrays of Structures age sum: 49.5842
-Structure of Arrays age sum: 49.941299
-SoA is 2.20 times faster than AoS
-SoA is 27.07 times faster than scattered array
+For 0 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.8903
+Arrays of Structures age sum: 49.5387
+Structure of Arrays age sum: 49.837399
+SoA is 2.79 times faster than AoS
+SoA is 40.94 times faster than scattered array
 
-For 2 bytes of extra data
-Scattered heap allocations age sum: 49.9548
-Arrays of Structures age sum: 49.989399
-Structure of Arrays age sum: 50.0068
-SoA is 1.50 times faster than AoS
-SoA is 27.59 times faster than scattered array
+For 2 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.1248
+Arrays of Structures age sum: 50.2579
+Structure of Arrays age sum: 50.1211
+SoA is 1.38 times faster than AoS
+SoA is 25.59 times faster than scattered array
 
-For 4 bytes of extra data
-Scattered heap allocations age sum: 49.843399
-Arrays of Structures age sum: 50.3287
-Structure of Arrays age sum: 49.978699
-SoA is 2.29 times faster than AoS
-SoA is 38.14 times faster than scattered array
+For 4 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.201599
+Arrays of Structures age sum: 49.722599
+Structure of Arrays age sum: 49.8646
+SoA is 2.01 times faster than AoS
+SoA is 39.80 times faster than scattered array
 
-For 8 bytes of extra data
-Scattered heap allocations age sum: 49.507
-Arrays of Structures age sum: 50.066898
-Structure of Arrays age sum: 50.0061
-SoA is 3.09 times faster than AoS
-SoA is 36.29 times faster than scattered array
+For 8 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.592499
+Arrays of Structures age sum: 49.8403
+Structure of Arrays age sum: 49.9879
+SoA is 2.00 times faster than AoS
+SoA is 37.28 times faster than scattered array
 
-For 16 bytes of extra data
-Scattered heap allocations age sum: 50.0601
-Arrays of Structures age sum: 50.2448
-Structure of Arrays age sum: 50.059799
-SoA is 3.14 times faster than AoS
-SoA is 7.87 times faster than scattered array
+For 16 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.95
+Arrays of Structures age sum: 50.0772
+Structure of Arrays age sum: 49.5349
+SoA is 5.42 times faster than AoS
+SoA is 11.48 times faster than scattered array
 
-For 32 bytes of extra data
-Scattered heap allocations age sum: 49.9957
-Arrays of Structures age sum: 50.5721
-Structure of Arrays age sum: 50.1633
-SoA is 7.68 times faster than AoS
-SoA is 13.28 times faster than scattered array
+For 32 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.712799
+Arrays of Structures age sum: 49.5772
+Structure of Arrays age sum: 50.045799
+SoA is 5.43 times faster than AoS
+SoA is 8.95 times faster than scattered array
 
-For 64 bytes of extra data
-Scattered heap allocations age sum: 50.32
-Arrays of Structures age sum: 49.7187
-Structure of Arrays age sum: 50.0091
-SoA is 12.18 times faster than AoS
-SoA is 14.58 times faster than scattered array
+For 64 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.1566
+Arrays of Structures age sum: 49.986599
+Structure of Arrays age sum: 49.783699
+SoA is 11.76 times faster than AoS
+SoA is 16.73 times faster than scattered array
 
-For 128 bytes of extra data
-Scattered heap allocations age sum: 50.372898
-Arrays of Structures age sum: 49.874699
-Structure of Arrays age sum: 50.1076
-SoA is 10.64 times faster than AoS
-SoA is 10.28 times faster than scattered array
+For 128 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.0602
+Arrays of Structures age sum: 50.0028
+Structure of Arrays age sum: 49.602699
+SoA is 15.87 times faster than AoS
+SoA is 14.99 times faster than scattered array
 
-For 256 bytes of extra data
-Scattered heap allocations age sum: 49.5601
-Arrays of Structures age sum: 49.970699
-Structure of Arrays age sum: 50.021999
-SoA is 14.24 times faster than AoS
-SoA is 14.65 times faster than scattered array
+For 256 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.8921
+Arrays of Structures age sum: 50.0311
+Structure of Arrays age sum: 50.1157
+SoA is 7.50 times faster than AoS
+SoA is 8.00 times faster than scattered array
 
-For 512 bytes of extra data
-Scattered heap allocations age sum: 49.6566
-Arrays of Structures age sum: 50.1543
-Structure of Arrays age sum: 49.698799
-SoA is 15.29 times faster than AoS
-SoA is 13.63 times faster than scattered array
+For 512 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.063
+Arrays of Structures age sum: 49.9266
+Structure of Arrays age sum: 50.3134
+SoA is 13.31 times faster than AoS
+SoA is 15.57 times faster than scattered array
 
-For 1024 bytes of extra data
-Scattered heap allocations age sum: 49.8326
-Arrays of Structures age sum: 50.203899
-Structure of Arrays age sum: 50.2854
-SoA is 7.66 times faster than AoS
-SoA is 7.85 times faster than scattered array
+For 1024 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.088299
+Arrays of Structures age sum: 50.061798
+Structure of Arrays age sum: 50.102699
+SoA is 15.54 times faster than AoS
+SoA is 14.73 times faster than scattered array
 
-For 1500 bytes of extra data
-Scattered heap allocations age sum: 49.599499
-Arrays of Structures age sum: 49.341499
-Structure of Arrays age sum: 50.291599
-SoA is 15.24 times faster than AoS
-SoA is 16.55 times faster than scattered array
+For 1500 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.7318
+Arrays of Structures age sum: 49.972698
+Structure of Arrays age sum: 49.6439
+SoA is 8.12 times faster than AoS
+SoA is 8.70 times faster than scattered array
 
-For 2000 bytes of extra data
-Scattered heap allocations age sum: 50.3217
-Arrays of Structures age sum: 50.1679
-Structure of Arrays age sum: 49.851398
-SoA is 20.39 times faster than AoS
-SoA is 21.56 times faster than scattered array
+For 2000 bytes of extra data in each array element:
+Scattered heap allocations age sum: 49.905899
+Arrays of Structures age sum: 50.3902
+Structure of Arrays age sum: 49.914398
+SoA is 22.79 times faster than AoS
+SoA is 22.57 times faster than scattered array
 
-For 3000 bytes of extra data
-Scattered heap allocations age sum: 50.0918
-Arrays of Structures age sum: 49.5054
-Structure of Arrays age sum: 50.035099
-SoA is 27.28 times faster than AoS
-SoA is 28.28 times faster than scattered array
+For 3000 bytes of extra data in each array element:
+Scattered heap allocations age sum: 50.0609
+Arrays of Structures age sum: 49.6073
+Structure of Arrays age sum: 48.917599
+SoA is 29.32 times faster than AoS
+SoA is 27.61 times faster than scattered array
 ```
