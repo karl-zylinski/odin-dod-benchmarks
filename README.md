@@ -2,7 +2,7 @@ These benchmarks were written to provide examples of how different memory layout
 
 Note that benchmarks are never an absolute truth. Depending on the data access patterns of tight loops the performance characteristics can change a lot. This is simply meant to show some techniques that are faster in certain cases.
 
-`tight_arrays` contains an example of how separately heap allocating array elements vs keeping them within an array can affect performance. Note that I fudge the memory addresses of where the separate heap allocations end up by allocating random amounts of data before each element. This simulates the program running for a while and elements being added every now and the as opposed to all in one go.
+`tight_arrays` contains an example of how separately heap allocating array elements vs keeping them within an array can affect performance. Note that I fudge the memory addresses of where the separate heap allocations end up by allocating random amounts of data before each element. This simulates the program running for a while and elements being added every now and then, as opposed to all in one go.
 
 `soa` contains examples of how the performance can differ for arrays that use:
 - Structure of Arrays
