@@ -9,7 +9,7 @@ Note that benchmarks are never an absolute truth. Depending on the data access p
 - Array of Structures
 - Separately heap allocated elements
 
-Note that in the `soa` benchmark the benchmark is re-run several times with bigger and bigger amounts of "extra data" in each array element.
+Note that in the `soa` benchmark is re-run several times with bigger and bigger amounts of "extra data" in each array element.
 
 ## Running the tests
 
