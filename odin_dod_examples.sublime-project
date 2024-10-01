@@ -1,0 +1,46 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+		},
+		{
+			"path": "C:\\Odin\\base",
+		},
+		{
+			"path": "C:\\Odin\\core",
+		},
+		{
+			"path": "C:\\Odin\\vendor\\raylib",
+		},
+		{
+			"path": "C:\\Odin\\examples\\demo"
+		},
+	],
+	"build_systems":
+	[
+		{
+			"name": "Odin DOD Examples",
+			"shell_cmd": "odin run . -o:speed",
+			"file_regex": "^(.+)\\(([0-9]+):([0-9]+)\\) (.+)$",
+			"working_dir": "$project_path",
+			"variants": [
+				{
+					"name": "No optimizations",
+					"shell_cmd": "odin run . -o:none",
+				},
+			]
+		}
+	],
+	"settings":
+	{
+		"auto_complete": false,
+		"LSP":
+		{
+			"odin":
+			{
+				"enabled": true,
+			},
+		},
+	},
+}
