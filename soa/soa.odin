@@ -109,11 +109,13 @@ benchmark_soa_array :: proc($N: int) -> f64 {
 }
 
 soa_bench :: proc($N: int) {
+	fmt.printfln("For %v bytes of extra data", N)
 	time_scattered := benchmark_scattered_array(N)
 	time_aos := benchmark_aos_array(N)
 	time_soa := benchmark_soa_array(N)
-	fmt.printfln("For %v bytes of extra data in Person struct: SoA is %.2f times faster than AoS", N, time_aos/time_soa)
-	fmt.printfln("For %v bytes of extra data in Person struct: SoA is %.2f times faster than scattered array", N, time_scattered/time_soa)
+	fmt.printfln("SoA is %.2f times faster than AoS", time_aos/time_soa)
+	fmt.printfln("SoA is %.2f times faster than scattered array", time_scattered/time_soa)
+	fmt.println()
 }
 
 main :: proc() {

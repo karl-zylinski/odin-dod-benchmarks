@@ -5,10 +5,12 @@ import "tight_arrays"
 import "soa"
 
 main :: proc() {
-    fmt.println("Benchmark: Using thightly packed arrays over separate heap allocations")
+    fmt.println("Benchmark: Iterating tightly packed arrays vs arrays with separately heap allocated elements")
+    fmt.println("--------------------------------------------------------------------------------------------")
     tight_arrays.main()
 
     fmt.println("")
-    fmt.println("Benchmark: SoA vs AoS vs separate heap allocs")
+    fmt.println("Benchmark: Iterating arrays that use SoA vs AoS vs separately heap allocated elements")
+    fmt.println("-------------------------------------------------------------------------------------")
     soa.main()
 }
