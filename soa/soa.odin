@@ -54,7 +54,7 @@ benchmark_scattered_array :: proc($N: int) -> f64 {
 		}
 	}
 	end := time.now()
-	fmt.println("Arrays of Structures age sum:", f32(age_sum)/(NUM_TEST_ITERS*NUM_ELEMS))
+	fmt.println("Scattered heap allocations age sum:", f32(age_sum)/(NUM_TEST_ITERS*NUM_ELEMS))
 
 	return time.duration_milliseconds(time.diff(start, end)) 
 }
